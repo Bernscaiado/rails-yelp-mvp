@@ -1,24 +1,46 @@
-<h2><%= @restaurant.name %></h2>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%= @restaurant.category %></p>
 
-<%= link_to 'Back', restaurants_path %>
-<p>
-  <%= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-success' %>
-</p>
-
-<h3 class="mt-4">Reviews</h3>
-<ul>
-  <% @restaurant.reviews.each do |review| %>
-    <li>
-      <%= review.content %>
-      <%= review.rating %>
-    </li>
-  <% end %>
-</ul>
+<div class="card" >
+  <div class="body">
+    <h2><%= @restaurant.name %></h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= @restaurant.address %></th>
+          <th><%= @restaurant.phone_number %></th>
+          <th><%= @restaurant.category %></th>
+        </tr>
+      </thead>
+    </table>
 
 
-<p>
-  <%= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-success' %>
-</p>
+    <table class="table flex">
+      <thead>
+        <tr>
+          <th>Review</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @restaurant.reviews.each do |review| %>
+          <tr>
+            <td><%= review.content %></td>
+            <td><%= review.rating %>/5</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div>
+      <p>
+        <%= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-success d-flex justify-content-center' %>
+      </p>
+
+      <p>
+        <%= link_to 'Back', restaurants_path, class: 'btn btn-primary d-flex justify-content-center' %>
+      </p>
+    </div>
+  </div>
+</div>
+
+
