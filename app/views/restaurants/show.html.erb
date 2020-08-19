@@ -3,3 +3,22 @@
 <p><%= @restaurant.phone_number %></p>
 <p><%= @restaurant.category %></p>
 
+<%= link_to 'Back', restaurants_path %>
+<p>
+  <%= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-success' %>
+</p>
+
+<h3 class="mt-4">Reviews</h3>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+      <%= review.content %>
+      <%= review.rating %>
+    </li>
+  <% end %>
+</ul>
+
+
+<p>
+  <%= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-success' %>
+</p>

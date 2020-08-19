@@ -1,5 +1,28 @@
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant.name %></li>
-  <% end %>
-</ul>
+
+<h1>Restaurants</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Address</th>
+      <th>Phone Number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= link_to "#{restaurant.name}", restaurant %></td>
+        <td><%= restaurant.category %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= restaurant.phone_number %></td>
+              </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
